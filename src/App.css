@@ -1,0 +1,43 @@
+html {
+    overflow: hidden;
+}
+
+body {
+    background-color: black;
+    overflow: hidden;
+}
+
+.project-enri-emi {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+}
+
+.transition-screen {
+    background-color: rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    opacity: 1;
+    transition: opacity 0.8s;
+    z-index: 3;
+}
+
+.transition-screen--exit {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s;
+}
+
+@media only screen and (min-width: 530px) and (min-height: 200px) and (max-height: 500px) and (orientation: landscape) {
+    .project-enri-emi > .scoreboard-transition-screen {
+        transform-origin: left top;
+        transform: rotate(-90deg) translateX(-100%);
+        height: 120vw;
+        width: 120vh;
+        overflow: hidden;
+    }
+}
