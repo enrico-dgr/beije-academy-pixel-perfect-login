@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap");
+
 .input-text {
     position: relative;
+    margin: 0 0 20px 0;
 }
 
 .input-text__input {
@@ -9,15 +12,16 @@
     font-size: 16px;
     line-height: 1.2;
     padding: 0 20px 0 23px;
-    width: 100%;
+    width: 237px;
 
     background: transparent;
     border: none;
     border-radius: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.144);
+    /* box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.075); */
+    box-shadow: 3px 5px 29px rgba(0, 0, 0, 0.192);
     color: #4b2354;
-    font-family: SourceSansPro-Regular, sans-serif;
-    font-weight: 500;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 900;
     outline: none;
 }
 
@@ -26,7 +30,15 @@
     font-weight: 900;
 }
 
-.input-text__btn-hide-error {
+.input-text__input--error::placeholder {
+    color: #fa4251;
+}
+
+.input-text__input:focus {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.144);
+}
+
+.input-text__icon {
     align-items: center;
     display: flex;
     justify-content: center;
@@ -35,10 +47,28 @@
     top: 0px;
 
     height: 62px;
+}
 
-    background-color: red;
+.input-text__icon div {
+    display: flex;
+    justify-content: space-around;
+
+    height: 12.5px;
+    width: 12.5px;
+
+    border-radius: 35px;
     color: white;
+    font-size: 8px;
+    font-weight: 900;
+    line-height: 0.8rem;
+}
+
+.input-text__icon--hide-error > div {
+    background-color: #fa4251;
+
     cursor: pointer;
-    font-family: Material-Design-Iconic-Font;
-    font-size: 15px;
+}
+
+.input-text__icon--valid-check div {
+    background-color: #57b846;
 }
