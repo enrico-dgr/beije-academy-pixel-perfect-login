@@ -14,9 +14,8 @@ const Input = (props) => {
             <input
                 type="text"
                 placeholder={isError ? props.errorMessage : props.placeholder}
-                className={`input-text__input ${
-                    isError ? "input-text__input--error" : ""
-                }`}
+                className={`input-text__input ${isError ? "input-text__input--error" : ""
+                    }`}
                 onChange={onChange}
             />
             {isError && <span className={"input-text__btn-hide-error"}>x</span>}
@@ -26,9 +25,9 @@ const Input = (props) => {
 
 Input.defaultProps = {
     errorMessage: "",
-    onBlur: () => {},
-    onChange: () => {},
-    onClickXButton: () => {},
+    onBlur: () => { },
+    onChange: () => { },
+    onClickXButton: () => { },
     placeholder: "",
 };
 

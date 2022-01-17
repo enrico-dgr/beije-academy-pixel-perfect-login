@@ -2,15 +2,30 @@ html {
     overflow: hidden;
 }
 
-body {
-    background-color: white;
-    overflow: hidden;
+.bg__login-page{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    min-height: 100vh;
+    background-image: url("./assets/bg-01.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
 }
 
-.page {
-    align-items: center;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    width: 100vw;
+.bg__gradient{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(93,84,240,.5);
+    background: -webkit-linear-gradient(left,rgba(0,168,255,0.5),rgba(185,0,255,0.5));
+    pointer-events: none;
+    z-index: -1;
 }
