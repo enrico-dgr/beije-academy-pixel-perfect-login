@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap");
 
 .input-text {
     position: relative;
@@ -17,17 +17,19 @@
     background: transparent;
     border: none;
     border-radius: 20px;
-    /* box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.075); */
-    box-shadow: 3px 5px 29px rgba(0, 0, 0, 0.192);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.075);
     color: #4b2354;
     font-family: "Source Sans Pro", sans-serif;
-    font-weight: 900;
+    font-weight: 700;
     outline: none;
 }
 
 .input-text__input::placeholder {
-    color: black;
-    font-weight: 900;
+    color: #4b2354;
+}
+
+.input-text__input--error {
+    box-shadow: 0px 0px 20px #fa42511d;
 }
 
 .input-text__input--error::placeholder {
@@ -35,7 +37,7 @@
 }
 
 .input-text__input:focus {
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.144);
+    box-shadow: 3px 5px 29px rgba(0, 0, 0, 0.192);
 }
 
 .input-text__icon {

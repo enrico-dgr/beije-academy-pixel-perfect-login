@@ -1,66 +1,90 @@
-.card-login {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 390px;
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+
+.card-login-wrapper {
     background: #fff;
+    width: max-content;
+    height: max-content;
     border-radius: 10px;
-    overflow: hidden;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 100vh;
-    width: 100vw;
 }
 
-.title__login{
+.card-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 589px;
+    padding: 80px 55px 30px 55px;
+    overflow: hidden;
+    width: 280px;
+}
+
+.title__login {
     display: block;
-    font-family: SourceSansPro-Bold;
+    margin: 0 0 37px 0;
+    font-family: "Source Sans Pro", sans-serif;
     font-size: 30px;
+    font-weight: 900;
     color: #4b2354;
     line-height: 1.2;
     text-align: center;
 }
 
-.button__sign-in{
+.card-login .input-text {
+    margin: 0 0 25px 0;
+}
+
+.button__sign-in {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 20px;
+    width: 120px;
     min-width: 160px;
     height: 50px;
+    min-height: 50px;
     background-color: #bd59d4;
     border-radius: 25px;
-    font-family: SourceSansPro-SemiBold;
+    box-shadow: 0 10px 30px #d853f65e;
+
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 700;
     font-size: 14px;
     color: #fff;
     line-height: 1.2;
     text-transform: uppercase;
     border: 0;
     cursor: pointer;
+
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-.button__sign-in:hover{
+.button__sign-in:hover {
     background-color: rgb(89, 37, 100);
+    box-shadow: 0 10px 30px #d853f68a;
 }
 
-.other-login{
-    font-family: SourceSansPro-Regular;
+.other-login {
     font-size: 16px;
     line-height: 1.4;
-    color: #999;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+    color: rgb(138, 138, 138);
     padding-top: 57px;
     padding-bottom: 20px;
+    margin: 0;
 }
 
-.content__other-login{
+.content__other-login {
     display: flex;
     flex-direction: row;
+    padding: 0 0 112px 0;
 }
 
-.content__social-login{
+.content__social-login {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,13 +94,15 @@
     background-color: white;
     margin: 5px;
     box-shadow: 0 5px 20px 0 rgb(0 0 0 / 10%);
+
+    transition: all 0.4s ease;
 }
 
-.content__social-login:hover{
+.content__social-login:hover {
     box-shadow: 0 5px 20px 0 rgb(0 0 0 / 20%);
 }
 
-.social-login{
+.social-login {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,9 +111,24 @@
 .social-login > img {
     width: 26px;
 }
+.card-login a:link {
+    text-decoration: none;
+}
 
-.fb-login{
-    font-size: 25px;
+.social-login i {
     color: #3b5998;
-    font: normal normal normal 14px FontAwesome;
+    font-size: 25px;
+}
+
+.sign-up {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #4b2354;
+    text-shadow: 0 0 1px #642f707a;
+}
+
+.card-login .sign-up:hover {
+    text-decoration: underline;
 }

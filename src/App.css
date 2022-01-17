@@ -1,14 +1,9 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-
 html {
-    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
-.bg__login-page{
+.bg__login-page {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -24,14 +19,18 @@ html {
     z-index: 1;
 }
 
-.bg__gradient{
+.bg__gradient {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(93,84,240,.5);
-    background: -webkit-linear-gradient(left,rgba(0,168,255,0.5),rgba(185,0,255,0.5));
+    background: rgba(93, 84, 240, 0.5);
+    background: -webkit-linear-gradient(
+        left,
+        rgba(0, 168, 255, 0.5),
+        rgba(185, 0, 255, 0.5)
+    );
     pointer-events: none;
     z-index: -1;
 }

@@ -91,59 +91,69 @@ class LogIn extends Component {
         this.setState({ passwordErrorMessage: "" });
     };
 
+    onClickSignIn = () => {
+        this.onBlurUsername();
+        this.onBlurPassword();
+    };
+
     render() {
         return (
-            <Card className={"card-login"}>
-                <h1 className={"title__login"}>SIGN IN</h1>
-                <InputText
-                    errorMessage={this.state.usernameErrorMessage}
-                    isValid={this.state.isUsernameValid}
-                    name={"username"}
-                    onBlur={this.onBlurUsername}
-                    onChange={this.onChangeUsername}
-                    onFocus={this.onFocusUsername}
-                    onClickXButton={this.onClickXButtonUsername}
-                    placeholder="username or email"
-                    type={"text"}
-                />
-                <InputText
-                    errorMessage={this.state.passwordErrorMessage}
-                    isValid={this.state.isPasswordValid}
-                    name={"pass"}
-                    onBlur={this.onBlurPassword}
-                    onChange={this.onChangePassword}
-                    onFocus={this.onFocusPassword}
-                    onClickXButton={this.onClickXButtonPassword}
-                    placeholder="password"
-                    type={"password"}
-                />
+            <div className={"card-login-wrapper"}>
+                <Card className={"card-login"}>
+                    <h1 className={"title__login"}>Sign In</h1>
+                    <InputText
+                        errorMessage={this.state.usernameErrorMessage}
+                        isValid={this.state.isUsernameValid}
+                        name={"username"}
+                        onBlur={this.onBlurUsername}
+                        onChange={this.onChangeUsername}
+                        onFocus={this.onFocusUsername}
+                        onClickXButton={this.onClickXButtonUsername}
+                        placeholder="username or email"
+                        type={"text"}
+                    />
+                    <InputText
+                        errorMessage={this.state.passwordErrorMessage}
+                        isValid={this.state.isPasswordValid}
+                        name={"pass"}
+                        onBlur={this.onBlurPassword}
+                        onChange={this.onChangePassword}
+                        onFocus={this.onFocusPassword}
+                        onClickXButton={this.onClickXButtonPassword}
+                        placeholder="password"
+                        type={"password"}
+                    />
 
-                <Button
-                    className={"button__sign-in"}
-                    onClick={this.onClickSignIn}
-                    label={"SIGN IN"}
-                ></Button>
+                    <Button
+                        className={"button__sign-in"}
+                        onClick={this.onClickSignIn}
+                        label={"SIGN IN"}
+                    />
 
-                <h2 className={"other-login"}>Or login with</h2>
+                    <h2 className={"other-login"}>Or login with</h2>
 
-                <div className={"content__other-login"}>
-                    <div className={"content__social-login"}>
-                        <a href="#" className={"social-login"}>
-                            <i className="fb-login">&#102;</i>
-                        </a>
+                    <div className={"content__other-login"}>
+                        <div className={"content__social-login"}>
+                            <a href="#" className={"social-login"}>
+                                <i
+                                    class="fa fa-facebook"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                        </div>
+
+                        <div className={"content__social-login"}>
+                            <a href="#" className={"social-login"}>
+                                <img src={GoogleIcon} alt="GOOGLE" />
+                            </a>
+                        </div>
                     </div>
 
-                    <div className={"content__social-login"}>
-                        <a href="#" className={"social-login"}>
-                            <img src={GoogleIcon} alt="GOOGLE" />
-                        </a>
-                    </div>
-                </div>
-
-                <a href="#" className={"sign-up"}>
-                    Sign up
-                </a>
-            </Card>
+                    <a href="#" className={"sign-up"}>
+                        Sign Up
+                    </a>
+                </Card>
+            </div>
         );
     }
 }
