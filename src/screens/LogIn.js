@@ -8,6 +8,7 @@ import Button from "../components/funcComponents/Button";
 import Card from "../components/funcComponents/Card";
 import GoogleIcon from "../assets/icon-google.webp";
 import InputText from "../components/funcComponents/InputText";
+import regex from "../utils/regex";
 import { toast } from "react-toastify";
 
 class LogIn extends Component {
@@ -28,13 +29,10 @@ class LogIn extends Component {
 
     getUsernameErrorMessage = (text) => {
         if (text === "") {
-            return this.props.t("empty username");
+            return this.props.t("login.emptyUsername");
         }
-        const strongRegex = new RegExp(
-            // eslint-disable-next-line no-useless-escape
-            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        );
-        if (text.includes("@") && strongRegex.test(text) === false) {
+
+        if (text.includes("@") && regex.emailTest(text) === false) {
             const message = this.props.t("invalid email");
             return message;
         }
@@ -77,13 +75,11 @@ class LogIn extends Component {
 
     getPasswordErrorMessage = (text) => {
         if (text === "") {
-            return this.props.t("empty password");
+            return this.props.t("login.emptyPassword");
         }
-        const strongRegex = new RegExp(
-            "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
-        );
-        if (strongRegex.test(text) === false) {
-            const message = this.props.t("invalid password");
+
+        if (regex.passwordTest(text) === false) {
+            const message = this.props.t("login.invalidPassword");
             return message;
         }
 
@@ -161,7 +157,7 @@ class LogIn extends Component {
             <div className={"card-login-wrapper"}>
                 <Card className={"card-login"}>
                     <h1 className={"title__login"}>
-                        {this.props.t("sign in")}
+                        {this.props.t("login.signIn")}
                     </h1>
                     <InputText
                         errorMessage={this.state.usernameErrorMessage}
@@ -171,7 +167,7 @@ class LogIn extends Component {
                         onChange={this.onChangeUsername}
                         onFocus={this.onFocusUsername}
                         onClickXButton={this.onClickXButtonUsername}
-                        placeholder={this.props.t("username-placeholder")}
+                        placeholder={this.props.t("login.usernamePlaceholder")}
                         type={"text"}
                     />
                     <InputText
@@ -188,11 +184,11 @@ class LogIn extends Component {
                     <Button
                         className={"button__sign-in"}
                         onClick={this.onClickSignIn}
-                        label={this.props.t("sign in")}
+                        label={this.props.t("login.signIn")}
                     />
 
                     <h2 className={"other-login"}>
-                        {this.props.t("other-login")}
+                        {this.props.t("login.otherLogin")}
                     </h2>
 
                     <div className={"content__other-login"}>
@@ -213,7 +209,7 @@ class LogIn extends Component {
                     </div>
 
                     <a href="#" className={"sign-up"}>
-                        {this.props.t("sign up")}
+                        {this.props.t("login.signUp")}
                     </a>
                 </Card>
             </div>

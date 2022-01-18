@@ -1,0 +1,12 @@
+{
+    "login": {
+        "emptyUsername": "Inserisci nome utente o email",
+        "invalidEmail": "Email non valida",
+        "emptyPassword": "Inserisci password",
+        "invalidPassword": "Password almeno 8 caratteri, 1 simbolo, 1 maiuscola",
+        "signIn": "Accedi",
+        "usernamePlaceholder": "nome utente o email",
+        "otherLogin": "O accedi con",
+        "signUp": "Registrati"
+    }
+}

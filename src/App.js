@@ -12,20 +12,22 @@ import { useTranslation } from "react-i18next";
 const App = () => {
     const { t } = useTranslation();
 
-    const onClickIT = () => {
-        i18next.changeLanguage("it");
-    };
-
-    const onClickEN = () => {
-        i18next.changeLanguage("en");
+    const onClickLanguage = (lang) => () => {
+        i18next.changeLanguage(lang);
     };
 
     return (
         <div className={"bg__login-page"}>
             <div className={"bg__gradient"}></div>
             <div className={"container__languages"}>
-                <button className="button-it" onClick={onClickIT}></button>
-                <button className="button-en" onClick={onClickEN}></button>
+                <button
+                    className="button-it"
+                    onClick={onClickLanguage("it")}
+                ></button>
+                <button
+                    className="button-en"
+                    onClick={onClickLanguage("en")}
+                ></button>
             </div>
             <LogIn t={t} />
             <ToastContainer />
