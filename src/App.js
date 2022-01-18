@@ -3,22 +3,30 @@ import "./App.css";
 import React, { Component } from "react";
 
 import LogIn from "./screens/LogIn";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
-class App extends Component {
-    constructor(props) {
-        super(props);
+const App = () => {
+    const { t } = useTranslation();
 
-        this.state = {};
+    const onClickIT = () => {
+        i18next.changeLanguage("it");
     }
 
-    render() {
-        return (
-            <div className={"bg__login-page"}>
-                <div className={"bg__gradient"}></div>
-                <LogIn />
+    const onClickEN = () => {
+        i18next.changeLanguage("en");
+    }
+
+    return (
+        <div className={"bg__login-page"}>
+            <div className={"bg__gradient"}></div>
+            <div className={"container__languages"}>
+                <button className="button-it" onClick={onClickIT}></button>
+                <button className="button-en" onClick={onClickEN}></button>
             </div>
-        );
-    }
+            <LogIn t={t} />
+        </div>
+    );
 }
 
 export default App;

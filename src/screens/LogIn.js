@@ -8,10 +8,13 @@ import Button from "../components/funcComponents/Button";
 import Card from "../components/funcComponents/Card";
 import GoogleIcon from "../assets/icon-google.webp";
 import InputText from "../components/funcComponents/InputText";
+import i18n from "./login.trans";
 
 class LogIn extends Component {
     constructor(props) {
         super(props);
+
+        this.t = this.props.t;
 
         this.state = {
             username: "",
@@ -25,7 +28,7 @@ class LogIn extends Component {
 
     getUsernameErrorMessage = (text) => {
         if (text === "") {
-            return "Enter username or email";
+            return this.props.t("empty username");
         }
 
         return "";
@@ -59,7 +62,7 @@ class LogIn extends Component {
 
     getPasswordErrorMessage = (text) => {
         if (text === "") {
-            return "Enter password";
+            return this.props.t("empty password");
         }
 
         return "";
@@ -100,7 +103,7 @@ class LogIn extends Component {
         return (
             <div className={"card-login-wrapper"}>
                 <Card className={"card-login"}>
-                    <h1 className={"title__login"}>Sign In</h1>
+                    <h1 className={"title__login"}>{this.props.t("sign in")}</h1>
                     <InputText
                         errorMessage={this.state.usernameErrorMessage}
                         isValid={this.state.isUsernameValid}
@@ -109,7 +112,7 @@ class LogIn extends Component {
                         onChange={this.onChangeUsername}
                         onFocus={this.onFocusUsername}
                         onClickXButton={this.onClickXButtonUsername}
-                        placeholder="username or email"
+                        placeholder={this.props.t("username-placeholder")}
                         type={"text"}
                     />
                     <InputText
@@ -127,10 +130,10 @@ class LogIn extends Component {
                     <Button
                         className={"button__sign-in"}
                         onClick={this.onClickSignIn}
-                        label={"SIGN IN"}
+                        label={this.props.t("sign in")}
                     />
 
-                    <h2 className={"other-login"}>Or login with</h2>
+                    <h2 className={"other-login"}>{this.props.t("other-login")}</h2>
 
                     <div className={"content__other-login"}>
                         <div className={"content__social-login"}>
@@ -150,7 +153,7 @@ class LogIn extends Component {
                     </div>
 
                     <a href="#" className={"sign-up"}>
-                        Sign Up
+                        {this.props.t("sign up")}
                     </a>
                 </Card>
             </div>

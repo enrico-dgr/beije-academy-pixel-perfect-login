@@ -37,3 +37,33 @@ body{
     pointer-events: none;
     z-index: -1;
 }
+
+.container__languages{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.container__languages button{
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 100px;
+    border: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.829);
+    background-color: transparent;
+    margin: 2px;
+}
+
+.button-it{
+    background-image: url("./assets/italy.png");
+}
+
+.button-en{
+    background-image: url("./assets/en-flag.png");
+}
