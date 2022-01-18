@@ -1,5 +1,8 @@
 import i18n from "i18next";
 import { useTranslation, initReactI18next } from "react-i18next";
+import EnTraslation from "./translation/en.json"
+import ItTraslation from "./translation/it.json"
+
 
 i18n
     .use(initReactI18next) // passes i18n down to react-i18next
@@ -9,24 +12,10 @@ i18n
         // or even better, manage them via a UI: https://react.i18next.com/guides/multiple-translation-files#manage-your-translations-with-a-management-gui)
         resources: {
             en: {
-                translation: {
-                    "empty username": "Enter username or email",
-                    "empty password": "Enter password",
-                    "sign in": "Sign In",
-                    "username-placeholder": "username or email",
-                    "other-login": "Or login with",
-                    "sign up": "Sign Up"
-                }
+                translation: EnTraslation
             },
             it: {
-                translation: {
-                    "empty username": "Inserisci nome utente o email",
-                    "empty password": "Inserisci password",
-                    "sign in": "Accedi",
-                    "username-placeholder": "nome utente o email",
-                    "other-login": "O accedi con",
-                    "sign up": "Registrati"
-                }
+                translation: ItTraslation
             }
         },
         lng: "en", // if you're using a language detector, do not define the lng option

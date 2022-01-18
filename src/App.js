@@ -5,6 +5,8 @@ import React, { Component } from "react";
 import LogIn from "./screens/LogIn";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
     const { t } = useTranslation();
@@ -25,6 +27,7 @@ const App = () => {
                 <button className="button-en" onClick={onClickEN}></button>
             </div>
             <LogIn t={t} />
+            <ToastContainer />
         </div>
     );
 }

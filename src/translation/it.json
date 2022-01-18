@@ -1,0 +1,9 @@
+{
+    "empty username": "Inserisci nome utente o email",
+    "empty password": "Inserisci password",
+    "invalid password": "Password almeno 8 caratteri, 1 simbolo, 1 maiuscola",
+    "sign in": "Accedi",
+    "username-placeholder": "nome utente o email",
+    "other-login": "O accedi con",
+    "sign up": "Registrati"
+}

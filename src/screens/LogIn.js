@@ -2,13 +2,15 @@
 import "./logIn.css";
 
 import React, { Component } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 //Components
 import Button from "../components/funcComponents/Button";
 import Card from "../components/funcComponents/Card";
 import GoogleIcon from "../assets/icon-google.webp";
 import InputText from "../components/funcComponents/InputText";
-import i18n from "./login.trans";
+import i18n from "../i18";
 
 class LogIn extends Component {
     constructor(props) {
@@ -30,6 +32,11 @@ class LogIn extends Component {
         if (text === "") {
             return this.props.t("empty username");
         }
+        const strongRegex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+        if (text.includes("@") && strongRegex.test(text) === false) {
+            const message = this.props.t("invalid email")
+            return message
+        }
 
         return "";
     };
@@ -37,14 +44,10 @@ class LogIn extends Component {
     onBlurUsername = () => {
         let newState = {};
 
-        newState.usernameErrorMessage = this.getUsernameErrorMessage(
-            this.state.username
-        );
-
+        newState.usernameErrorMessage = this.getUsernameErrorMessage(this.state.username)
         if (newState.usernameErrorMessage === "") {
             newState.isUsernameValid = true;
         }
-
         this.setState(newState);
     };
 
@@ -64,21 +67,21 @@ class LogIn extends Component {
         if (text === "") {
             return this.props.t("empty password");
         }
+        const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+        if (strongRegex.test(text) === false) {
+            const message = this.props.t("invalid password")
+            return message
+        }
 
         return "";
     };
 
     onBlurPassword = () => {
         let newState = {};
-
-        newState.passwordErrorMessage = this.getPasswordErrorMessage(
-            this.state.password
-        );
-
+        newState.passwordErrorMessage = this.getPasswordErrorMessage(this.state.password)
         if (newState.passwordErrorMessage === "") {
             newState.isPasswordValid = true;
         }
-
         this.setState(newState);
     };
 
@@ -95,8 +98,38 @@ class LogIn extends Component {
     };
 
     onClickSignIn = () => {
-        this.onBlurUsername();
-        this.onBlurPassword();
+        const usernameErrorMessage = this.getUsernameErrorMessage(
+            this.state.username
+        );
+
+        if (usernameErrorMessage !== "") {
+            toast.error(usernameErrorMessage, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+        const passwordErrorMessage = this.getPasswordErrorMessage(
+            this.state.password
+        );
+
+        if (passwordErrorMessage !== "") {
+            toast.error(passwordErrorMessage, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
     };
 
     render() {
@@ -126,7 +159,6 @@ class LogIn extends Component {
                         placeholder="password"
                         type={"password"}
                     />
-
                     <Button
                         className={"button__sign-in"}
                         onClick={this.onClickSignIn}
