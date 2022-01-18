@@ -1,23 +1,24 @@
 import "./App.css";
-
-import React, { Component } from "react";
+import "react-toastify/dist/ReactToastify.css";
 
 import LogIn from "./screens/LogIn";
-import { useTranslation } from "react-i18next";
+import React from "react";
+import { ToastContainer } from "react-toastify";
+// eslint-disable-next-line no-unused-vars
+import i18n from "./i18n";
 import i18next from "i18next";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from "react-i18next";
 
 const App = () => {
     const { t } = useTranslation();
 
     const onClickIT = () => {
         i18next.changeLanguage("it");
-    }
+    };
 
     const onClickEN = () => {
         i18next.changeLanguage("en");
-    }
+    };
 
     return (
         <div className={"bg__login-page"}>
@@ -30,6 +31,6 @@ const App = () => {
             <ToastContainer />
         </div>
     );
-}
+};
 
 export default App;

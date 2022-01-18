@@ -2,15 +2,13 @@
 import "./logIn.css";
 
 import React, { Component } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 //Components
 import Button from "../components/funcComponents/Button";
 import Card from "../components/funcComponents/Card";
 import GoogleIcon from "../assets/icon-google.webp";
 import InputText from "../components/funcComponents/InputText";
-import i18n from "../i18";
+import { toast } from "react-toastify";
 
 class LogIn extends Component {
     constructor(props) {
@@ -32,10 +30,13 @@ class LogIn extends Component {
         if (text === "") {
             return this.props.t("empty username");
         }
-        const strongRegex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+        const strongRegex = new RegExp(
+            // eslint-disable-next-line no-useless-escape
+            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
         if (text.includes("@") && strongRegex.test(text) === false) {
-            const message = this.props.t("invalid email")
-            return message
+            const message = this.props.t("invalid email");
+            return message;
         }
 
         return "";
@@ -44,7 +45,9 @@ class LogIn extends Component {
     onBlurUsername = () => {
         let newState = {};
 
-        newState.usernameErrorMessage = this.getUsernameErrorMessage(this.state.username)
+        newState.usernameErrorMessage = this.getUsernameErrorMessage(
+            this.state.username
+        );
         if (newState.usernameErrorMessage === "") {
             newState.isUsernameValid = true;
         }
@@ -60,6 +63,15 @@ class LogIn extends Component {
     };
 
     onClickXButtonUsername = () => {
+        toast.error(this.state.usernameErrorMessage, {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
         this.setState({ usernameErrorMessage: "" });
     };
 
@@ -67,10 +79,12 @@ class LogIn extends Component {
         if (text === "") {
             return this.props.t("empty password");
         }
-        const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+        const strongRegex = new RegExp(
+            "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
+        );
         if (strongRegex.test(text) === false) {
-            const message = this.props.t("invalid password")
-            return message
+            const message = this.props.t("invalid password");
+            return message;
         }
 
         return "";
@@ -78,7 +92,9 @@ class LogIn extends Component {
 
     onBlurPassword = () => {
         let newState = {};
-        newState.passwordErrorMessage = this.getPasswordErrorMessage(this.state.password)
+        newState.passwordErrorMessage = this.getPasswordErrorMessage(
+            this.state.password
+        );
         if (newState.passwordErrorMessage === "") {
             newState.isPasswordValid = true;
         }
@@ -94,6 +110,15 @@ class LogIn extends Component {
     };
 
     onClickXButtonPassword = () => {
+        toast.error(this.state.passwordErrorMessage, {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
         this.setState({ passwordErrorMessage: "" });
     };
 
@@ -105,7 +130,7 @@ class LogIn extends Component {
         if (usernameErrorMessage !== "") {
             toast.error(usernameErrorMessage, {
                 position: "top-center",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -121,7 +146,7 @@ class LogIn extends Component {
         if (passwordErrorMessage !== "") {
             toast.error(passwordErrorMessage, {
                 position: "top-center",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -129,14 +154,15 @@ class LogIn extends Component {
                 progress: undefined,
             });
         }
-
     };
 
     render() {
         return (
             <div className={"card-login-wrapper"}>
                 <Card className={"card-login"}>
-                    <h1 className={"title__login"}>{this.props.t("sign in")}</h1>
+                    <h1 className={"title__login"}>
+                        {this.props.t("sign in")}
+                    </h1>
                     <InputText
                         errorMessage={this.state.usernameErrorMessage}
                         isValid={this.state.isUsernameValid}
@@ -165,13 +191,15 @@ class LogIn extends Component {
                         label={this.props.t("sign in")}
                     />
 
-                    <h2 className={"other-login"}>{this.props.t("other-login")}</h2>
+                    <h2 className={"other-login"}>
+                        {this.props.t("other-login")}
+                    </h2>
 
                     <div className={"content__other-login"}>
                         <div className={"content__social-login"}>
                             <a href="#" className={"social-login"}>
                                 <i
-                                    class="fa fa-facebook"
+                                    className="fa fa-facebook"
                                     aria-hidden="true"
                                 ></i>
                             </a>
