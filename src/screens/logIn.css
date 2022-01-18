@@ -4,6 +4,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
 
 .card-login-wrapper {
+    display: flex;
+    justify-content: center;
     background: #fff;
     width: max-content;
     height: max-content;
@@ -15,7 +17,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-
     height: 589px;
     padding: 80px 55px 30px 55px;
     overflow: hidden;
@@ -24,17 +25,18 @@
 
 .title__login {
     display: block;
-    margin: 0 0 37px 0;
+    padding-bottom: 37px;
+    margin: 0;
     font-family: "Source Sans Pro", sans-serif;
     font-size: 30px;
-    font-weight: 900;
+    font-weight: 700;
     color: #4b2354;
     line-height: 1.2;
     text-align: center;
 }
 
 .card-login .input-text {
-    margin: 0 0 25px 0;
+    margin: 0 0 20px 0;
 }
 
 .button__sign-in {
@@ -45,13 +47,13 @@
     width: 120px;
     min-width: 160px;
     height: 50px;
+    margin-top: 5px;
     min-height: 50px;
     background-color: #bd59d4;
     border-radius: 25px;
     box-shadow: 0 10px 30px #d853f65e;
-
     font-family: "Source Sans Pro", sans-serif;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 14px;
     color: #fff;
     line-height: 1.2;
@@ -71,7 +73,7 @@
     font-size: 16px;
     line-height: 1.4;
     font-family: "Source Sans Pro", sans-serif;
-    font-weight: 600;
+    font-weight: 400;
     color: rgb(138, 138, 138);
     padding-top: 57px;
     padding-bottom: 20px;

@@ -3,13 +3,16 @@ html {
     overflow-x: hidden;
 }
 
+body{
+    margin: 0;
+}
+
 .bg__login-page {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 100%;
     padding: 15px;
     min-height: 100vh;
     background-image: url("./assets/bg-01.jpg");
